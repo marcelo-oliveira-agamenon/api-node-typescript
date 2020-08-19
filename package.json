@@ -4,6 +4,7 @@
   "description": "api with node and typescript",
   "main": "index.js",
   "scripts": {
+    "start": "node src/app.ts",
     "dev": "nodemon src/app.ts"
   },
   "author": "Marcelo Oliveira",
