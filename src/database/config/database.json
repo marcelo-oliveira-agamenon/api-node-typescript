@@ -1,0 +1,11 @@
+{
+  "dialect": "postgres",
+  "host": "localhost",
+  "username": "admin",
+  "password": "123456",
+  "database": "appangular",
+  "define": {
+    "timestamps": true,
+    "underscored": true
+  }
+}
