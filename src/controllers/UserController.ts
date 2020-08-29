@@ -1,13 +1,28 @@
 import { Request, Response } from 'express'
-import jwt from 'jsonwebtoken'
-import bcrypt from 'bcrypt'
+import { PrismaClient } from '@prisma/client'
 
-import User from '../models/User'
+const prisma = new PrismaClient()
 
 export class UserController {
   public async list (req: Request, res: Response): Promise<Response> {
-    const allUsers: Array<User> = await User.scope('withouPassword').findAll({})
-    return res.status(200).send({ data: allUsers })
+    const allusers = await prisma.user.findMany()
+    return res.status(200).send({ data: allusers })
+  }
+
+  public async create (req: Request, res: Response): Promise<Response> {
+    const { name, email, password, image } = req.body
+
+    const create = await prisma.user.create({
+      data: {
+        name: name,
+        email: email,
+        password: password,
+        imageUrl: image,
+        role: 'USER'
+      }
+    })
+
+    return res.status(200).json('Usuário criado')
   }
 }
 
