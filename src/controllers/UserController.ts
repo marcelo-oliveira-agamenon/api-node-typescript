@@ -42,6 +42,32 @@ export class UserController {
       })
     }
   }
+
+  public async update (req: Request, res: Response): Promise<Response> {
+    const { body } = req
+
+    return res.send(body)
+  }
+
+  public async delete (req: Request, res: Response): Promise<Response> {
+    const { id } = req.params
+
+    try {
+      const dele = await prisma.user.delete({
+        where: {
+          id: id
+        }
+      })
+      return res.status(200).send({
+        message: 'User deleted',
+        user: dele
+      })
+    } catch (err) {
+      return res.status(400).send({
+        error: err
+      })
+    }
+  }
 }
 
 export default new UserController()
