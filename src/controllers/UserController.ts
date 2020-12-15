@@ -11,9 +11,25 @@ export class UserController {
   }
 
   public async create(req: Request, res: Response): Promise<Response> {
-    const { name, email, password, image, role } = req.body;
+    const {
+      name,
+      email,
+      password,
+      gender,
+      role,
+      avatar,
+      preferences,
+    } = req.body;
 
-    if (!name || !email || !password || !image || !role) {
+    if (
+      !name ||
+      !email ||
+      !password ||
+      !gender ||
+      !role ||
+      !avatar ||
+      !preferences
+    ) {
       return res.status(400).send({
         error: "Missing fields in request body",
       });
@@ -24,11 +40,13 @@ export class UserController {
       const hashedPassword = await hash(password, salt);
       const create = await prisma.user.create({
         data: {
-          name: name,
-          email: email,
+          name,
+          email,
           password: hashedPassword,
-          imageUrl: image,
-          role: role,
+          gender,
+          avatar,
+          role,
+          preferences,
           modifiedAt: new Date(),
         },
       });
