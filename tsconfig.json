@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["node"],
     "target": "es2017",
     "sourceMap": true,
     "allowJs": true,
