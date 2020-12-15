@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modeules src/server.ts"
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modeules src/server.ts",
+    "start": "ts-node src/server.ts"
   },
   "devDependencies": {
     "@prisma/cli": "^2.5.1",

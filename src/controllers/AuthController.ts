@@ -44,7 +44,6 @@ export class AuthController {
 
     let token;
     try {
-      console.log(user.id, "a");
       token = await sign(user, process.env.JWT_SECRET, {
         expiresIn: 7200,
       });
