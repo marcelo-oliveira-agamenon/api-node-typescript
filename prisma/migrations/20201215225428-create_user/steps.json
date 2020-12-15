@@ -113,8 +113,8 @@
     {
       "tag": "CreateField",
       "model": "User",
-      "field": "imageUrl",
-      "type": "String",
+      "field": "avatar",
+      "type": "Json",
       "arity": "Required"
     },
     {
@@ -123,6 +123,20 @@
       "field": "role",
       "type": "Role",
       "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "gender",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "preferences",
+      "type": "String",
+      "arity": "List"
     },
     {
       "tag": "CreateField",

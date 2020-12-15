@@ -12,8 +12,10 @@ model User {
   name String
   email String @unique
   password String
-  imageUrl String
+  avatar Json
   role Role
+  gender String
+  preferences String[]
   createdAt DateTime @default(now())
   modifiedAt DateTime @default(now())
 }
