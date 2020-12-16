@@ -6,14 +6,9 @@
   "author": "Marcelo Oliveira",
   "license": "MIT",
   "private": true,
-  "engines": {
-    "node": "12.18.2"
-  },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modeules src/server.ts",
-    "start": "node build/index.js",
-    "build": "tsc",
-    "postinstall": "yarn build"
+    "start": "ts-node src/server.ts"
   },
   "devDependencies": {
     "@prisma/cli": "^2.5.1",
