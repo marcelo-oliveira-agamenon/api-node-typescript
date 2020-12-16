@@ -11,7 +11,9 @@
   },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modeules src/server.ts",
-    "start": "node dist/server.js"
+    "start": "node build/index.js",
+    "build": "tsc",
+    "postinstall": "yarn build"
   },
   "devDependencies": {
     "@prisma/cli": "^2.5.1",
