@@ -3,12 +3,24 @@
     "target": "es2017",
     "sourceMap": true,
     "allowJs": true,
-    "lib": ["ES6", "DOM"],
+    "lib": ["ESNext"],
+    "types": ["node"],
     "removeComments": true,
     "module": "commonjs",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "outDir": "dist",
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@shared/*": ["shared/*"]
+    }
   }
 }

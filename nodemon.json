@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": ".ts,.js",
+  "ignore": [],
+  "exec": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/shared/server.ts"
+}
