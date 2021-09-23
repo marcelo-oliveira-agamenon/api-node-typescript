@@ -22,11 +22,22 @@ export default class AuthController {
   public async signUp(request: Request, response: Response): Promise<Response> {
     const data = request.body;
     const file = request.file as IFile;
-    const avatar = {
-      path: file.location,
-      name: file.key
-    };
-    data.avatar = avatar;
+
+    if (file) {
+      const avatar = {
+        path: file.location,
+        name: file.key
+      };
+
+      data.avatar = avatar;
+    } else {
+      const avatar = {
+        path: null,
+        name: null
+      };
+
+      data.avatar = avatar;
+    }
 
     const signUp = container.resolve(SignUpUserService);
     const user = await signUp.execute(data);

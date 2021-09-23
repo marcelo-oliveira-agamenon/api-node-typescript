@@ -27,17 +27,15 @@ class SignInUserService {
 
     try {
       const checkPassword = await compare(password, user.password);
-      const secret = process.env.JWT_SECRET as string;
 
       if (!checkPassword) {
         throw new AppError('Senha incorreta', 401);
       }
 
-      let token = sign(user.id, secret, {
-        expiresIn: 600000
-      });
+      let token = sign(user.id, process.env.JWT_SECRET as string);
 
       authUser.token = token;
+      authUser.user.password = '';
     } catch (error) {
       throw new AppError('Erro inesperado', 500);
     }

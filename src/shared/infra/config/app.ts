@@ -12,12 +12,7 @@ import authentication from '@shared/infra/middlewares/authentication';
 
 const app = express();
 
-app.use(
-  express.json(),
-  cors(),
-  express.urlencoded({ extended: true }),
-  authHandler(authentication)
-);
+app.use(express.json(), cors(), express.urlencoded({ extended: true }));
 app.use(routes);
 app.use(errors());
 app.use((err: Error, __: Request, response: Response, _: NextFunction) => {
